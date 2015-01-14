@@ -1,0 +1,37 @@
+Alejandro Alvarado
+CS35L
+lab2.log
+
+1. The first thing that I managed to do is to change
+   the locale to "C" by placing the
+   export LC_ALL="C" in my .bash_profile file so that
+   everytime that I open linux I can have the locale
+   set
+2. I managed to sort the contents into a file by
+   using the usual sort /path/to/directory >> file
+   command. Worked pretty well
+3. The first command printed all words (even the 
+   html tags). If it had a number it cut out the
+   number and only took the letters. There were
+   a lot of spaces inbetween these words and
+   letters.
+4. The next command stripped any empty lines that
+   were present from the last command. The -s
+   option is literally replace repeated characters
+   with only one of that character
+5. The third command sorted the list from the
+   previouse command
+6. The option to sort ( -u ) removed any duplicates
+   from the sorting function.
+7. The pipeline to the next command comm - words
+   creates three columns where the first column
+   shows the words only in the web page
+   The second column is the words only in
+   the file words and the third file is all the
+   words that are common in both files
+8. The last command with the option -23 to comm
+   suppresses the second and third columns from
+   the command comm. It essentially shows only
+   the words that are only in on the webpage
+   like 'www'.
+9. 

@@ -1,0 +1,63 @@
+Alejandro Alvarado
+CS35L
+ans1.txt
+
+1. man -k '<keyword>', use man page to find the option -k
+2. cp and wc are in /usr/local/cs/bin/, use the which command 
+3. X and w,
+   X - a portable, network-transparent window system
+   w - show who is logged on and what they are doing
+   use the find command using the ? wildcard to find all single character 
+   commands
+4. Its gcc, by going to the directory and typing ls -la one can see 
+   where the link points to
+5. It will remove the set user or group ID on execution from the group, 
+   g - group
+   - - remove
+   s - set use or group ID on execution
+   Use the man page of chmod to and read the paragraphs below the start of 
+   the manpage
+6. find -mtime -3, go into the manpage and look at the options and descriptions 
+   for the find command.
+7. find / -type d -mtime -3, as before read the manpages of find
+8. 18, use which find to find where find is. Then you find 
+   <find/path> -type l | wc -l to get the line numbers 
+   that find outputs, which is 18
+9. 
+10. Gets the data from the LC_* environment variables, read the manpage.
+11. Buffer-menu-sort, sort-columns, sort-fields, sort-lines, 
+    sort-numeric-fields, sort-pages sort-paragraphs, sort-regexp-fields,
+    tabulated-list-col-sort, tabulated-list-sort
+    - Used the M-x *sort Tab Tab to see all the listings. Unfortunately it 
+    would not allow me to use a wildcard at the end of sort so this 
+    list may not be the full list.
+12. C-a - go to the beginning of the line
+    C-b - move the cursor back one character
+    C-c - needs to be coupled with something else, waits for further keystrokes
+    C-d - deletes a character
+    C-e - moves cursor to the end of the line
+    C-f - moves the cursor one character forward
+    C-g - cancels a command
+    C-h - gives you help when needed 
+    C-i - insert a tab
+    C-j - return, but aligns with indentation
+    C-k - kill line after the cursor 
+    C-l - moves entire page to make cursor position centered
+    C-m - insert new line and move where it is
+    C-n - go to next line
+    C-o - insert new line, but stay in same position
+    C-p - move up to previous line
+    C-q - insert as regular keystroke, without seeing it as a command 
+    C-r - search before cursor
+    C-s - search 
+    C-t - switch characters
+    C-u - do next keystroke a certain number of times
+    C-v - move down a page
+    C-w - kill a higlighed region
+    C-x - waits for further commands
+    C-y - paste from clipboard
+    C-z - minimize emacs
+13. It allows you to cancel a command midway
+14. The yank function is sort of like the usual paste function
+15. One difference is that the dired command seems to output the hidden
+    files as well
