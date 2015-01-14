@@ -22,4 +22,11 @@
 #-Any words with letters NOT in the above
 #list should be rejected
 
+#Let us first start out by reading some
+#lines from the command line
 
+while read line
+do
+    name=$line
+    echo "Text read from file - $name"
+done
