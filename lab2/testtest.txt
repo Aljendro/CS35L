@@ -1,0 +1,18 @@
+#!/bin/bash
+
+#Seperate fields with newline
+IFS=$'\n'
+given_dir=$1
+
+
+#create an array with the files in the directory
+declare -a f_in_dir=($(find $given_dir -maxdepth 1 -type f | sort))
+
+count=0
+size=${#f_in_dir[@]}
+
+while [ $count -lt $size ]
+do
+	echo "${f_in_dir[$count]}"
+	let "count=count+1"
+done

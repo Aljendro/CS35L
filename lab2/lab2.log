@@ -34,4 +34,50 @@ lab2.log
    the command comm. It essentially shows only
    the words that are only in on the webpage
    like 'www'.
-9. 
+9. Some of the commands that I had to learn how to
+   use for the sed command and the tr command. 
+   Some of things that I learned from the sed 
+   command were that you can delete a patter
+   you can capture and replay a pattern and
+   finally you can search a pattern and replace
+   it with whatever you like. For the tr command
+   you can switch whatever character into another
+   character.
+10. The things I did was delete all the stuff 
+    around the list of English to Hawaiian words
+    using the delete ability of sed over multiple
+    lines. Next I deleted all the extra tags like
+    the <u> </u> tag from the hawaiian words. I 
+    Then deleted some more stuff around the 
+    Hawaiian words including the <tr> tags. 
+    There were ^M characters that were not letting
+    sort do its job, so I deleted those as well.
+    Finally, I sorted and deleted all the words
+    that had bad non-hawaiian characters in them.
+
+
+buildwords:
+
+sed '/<!DOCTYPE/,/<td>[aA]/d' |
+sed '/<\/table>/,/<\/html>/d' | 
+sed 's/<\/*u>//g' | 
+sed '/<tr>/,/<\/td>/d' | 
+sed 's/<\/tr>//g' | 
+sed '/^[[:space:]]*$/d' | 
+sed 's/^[[:space:]]*//g' | 
+sed 's/<td>\(.*\)<\/td>/\1/g' | 
+sed '/^[[:space:]]*$/d' | 
+tr '[:upper:]' '[:lower:]' | 
+tr ',' ' ' | 
+tr ' ' '\n' | 
+sed '/^[[:space:]]*$/d' | 
+tr -d '^M' |  
+sed 's/.*[^pkm`'"'"'nwlhaeiou].*//g' | 
+sed '/^[[:space:]]*$/d' |
+sed 's/`/'"'"'/g' |
+sort -u
+
+11. When running the spell checker there were 
+    456 misspelled words for English and 479
+    misspelled words on the Hawaiian. 
+    Some examples are on the webpage were 

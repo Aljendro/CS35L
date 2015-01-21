@@ -22,11 +22,21 @@
 #-Any words with letters NOT in the above
 #list should be rejected
 
-#Let us first start out by reading some
-#lines from the command line
-
-while read line
-do
-    name=$line
-    echo "Text read from file - $name"
-done
+sed '/<!DOCTYPE/,/<td>[aA]/d' |
+sed '/<\/table>/,/<\/html>/d' | 
+sed 's/<\/*u>//g' | 
+sed '/<tr>/,/<\/td>/d' | 
+sed 's/<\/tr>//g' | 
+sed '/^[[:space:]]*$/d' | 
+sed 's/^[[:space:]]*//g' | 
+sed 's/<td>\(.*\)<\/td>/\1/g' | 
+sed '/^[[:space:]]*$/d' | 
+tr '[:upper:]' '[:lower:]' | 
+tr ',' ' ' | 
+tr ' ' '\n' | 
+sed '/^[[:space:]]*$/d' | 
+tr -d '' |  
+sed 's/.*[^pkm`'"'"'nwlhaeiou].*//g' | 
+sed '/^[[:space:]]*$/d' |
+sed 's/`/'"'"'/g' |
+sort -u

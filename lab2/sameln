@@ -1,0 +1,29 @@
+#!/bin/bash
+
+#Seperate fields with newline
+IFS=$'\n'
+given_dir=$1
+
+
+#create an array with the files in the directory
+declare -a f_in_dir=($(find $given_dir -maxdepth 1 -type f | sort))
+
+count=0
+size=${#f_in_dir[@]}
+
+while [ $count -lt $size ]
+do 
+    let "sec_count=count+1"
+    while [ $sec_count -lt $size ]
+    do
+	file1=${f_in_dir[$count]}
+	file2=${f_in_dir[$sec_count]}
+	cmp -s $file1 $file2
+	if [ $? -eq 0 ]; then
+	    rm "$file2"
+	    ln "$file1" "$file2"
+	fi
+	let "sec_count=sec_count+1"
+    done
+    let "count=count+1"
+done
