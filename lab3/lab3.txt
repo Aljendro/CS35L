@@ -1,0 +1,32 @@
+Alejandro Alvarado
+CS35L
+lab3.txt
+
+1. Had to download the tar file from the 
+   link given to us. Found a helpful
+   command curl -O <url>, which allowed
+   me to download the file into the current
+   directory with the same name as the url, 
+   but without the path
+2. I now needed to unzip the tar file, so I 
+   managed to research a command, namely 
+   the tar command to unzip the file into a
+   specified directory. The command was:
+   tar -xvf <tarfile>.
+3. The next step was to using the ./configure
+   script supplied in the directory to check
+   configure my system for the coreutils.
+4. Next was to use the make file provided so
+   that all the files and dependencies can
+   be compiled on the linux system.
+5. Ran the ./ls -l <path> and found that indeed
+   the command from the coreutils did not 
+   output the unix style date to STDOUT. 
+   Proceeded with the Brady patch.
+6. Found the lines that needed to be deleted
+   and the lines to be added for the patch
+7. ran make
+8. Checked the files to see if the patch was
+   successful. I ran the command on several 
+   files and they all displayed the right 
+   format for the dates

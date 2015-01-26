@@ -1,0 +1,29 @@
+Alejandro Alvarado
+CS35L
+hw3.txt
+
+1. The reason that Brady's patch removed
+   the case_long_iso_time_style: was for 
+   the reason that it was not needed any
+   longer. The old source code 
+   contained a goto statement that would
+   jump to that location, but it was
+   removed. It was not necessary to the 
+   remove the line to have the program 
+   work, but it was necessary for the 
+   purpose of cleaner code. 
+2. The main opponent to changing your
+   code with the temporary workound would
+   have to be that it might break later 
+   updates to the system. Any code that 
+   relied on various lines of code may
+   not work properly. 
+3. When the python script is invoked on an
+   empty file, it shows a list index out of
+   range error.
+4. When invoked with Python3 interpreter, the
+   error message that goes to STDOUT shows 
+   a syntax error. The reason is that python3
+   has different syntax for printing strings
+   and raising exceptions than python2
+
