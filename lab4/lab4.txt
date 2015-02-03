@@ -1,0 +1,67 @@
+Alejandro Alvarado
+CS35L
+lab4.txt
+
+1. -Cloned repo using git clone <repo>
+   command
+2. -Got the output of git log into
+   the corresponding file using:
+   git log >> <file>
+
+3. -Got the git tags in a similar
+   fashion
+4. -Found the right SHA hash in git
+   log by using:
+   git log --all --grep='<search>'
+   -Got the patch by using:
+   git format-patch -1 <SHA>
+5. -Got the 3.0 version of the
+   repo by creating a new branch.
+   The command used was:
+   git checkout v3.0 -b <name>
+6. -Used the command:
+   patch -p1 < <file> to apply
+   the patch.
+   -There were some rejections
+   that were placed in .rej files.
+   There were also .orig files that
+   were created.
+8. -Opened each file that was changed
+   by the patch in emacs and used the
+   commands:
+   C-x v = ( to see the diff file with
+       	   the changed applied)
+   C-c C-c ( to check the source code
+       	   and see if it was applied
+	   correctly)
+   C-c C-a ( to rever the hunks that
+       	   were improperly patched)
+
+9. -Removed the files that were not .c
+   or .h from the git modified list by
+   using the command it suggested.
+10. Went through all the .rej files and
+    found some that were not applied.
+    Did these by hand
+11. Deleted all .orig files to stop
+    git from bringing them up in git
+    status
+12. Added the patch to a new file using
+    method of 2.
+13. -Used the instructions that were
+    suggested in the README-hacking
+    file.
+    -Tested the output of the commands
+    and found that the quoting was
+    patched
+14. -Copied the directories (patched vs.
+    unpatched ) using:
+    cp -avr <directory>
+    Then ran my patched diff on them
+15. -Using the system diff, compared the
+    output of 14. to the patched from 12.
+    -The only difference between the two
+    files was that my diff cut some lines
+    short and it came up as differences
+    using the system diff.
+

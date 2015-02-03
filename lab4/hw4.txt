@@ -1,0 +1,47 @@
+Alejandro Alvarado
+CS35L
+hw4.txt
+
+2. Used the command ( just like
+   in the lab):
+   git checkout v3.0 -b "quote"
+3. Used the command ( just like
+   in the lab):
+   patch -p1 < <patch-file>
+4. Had a seperate window showing
+   Professor Eggerts commit message
+   to see how to format the
+   change log file. Used
+   C-x 4 a to modify the change
+   log file in emacs.
+5. Used emacs M-w to copy the
+   change log and pasted into
+   my commit message by using
+   C-y in emacs.
+7. Used the command:
+   git format-patch -1 <SHA>
+   to create a patch file for
+   the commit
+8. -Used the same command as 2.
+   to createa another branch
+   with v3.0 of the code.
+   -Then used the git am command
+   to apply the patch file
+   -ran ./bootstrap
+   -ran ./configure
+   -ran make
+   -ran make check
+   Everything seemed to work
+   properly for the generated
+   patch
+9. There were some intial problems
+   with the change log, which
+   were apparent because the
+   words were not being higlighted
+   the same as the other change log
+   entries. Used the command:
+   git commit --amend to fix the
+   problem. After several tries
+   I was able to see that emacs
+   highlighted the entries in
+   the right way. 

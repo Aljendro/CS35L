@@ -1,0 +1,19 @@
+Alejandro Alvarado
+CS35L
+gitk-description.txt
+
+1. The box on top shows all the branches
+   on the left. The commit messages in
+   right next to each head as well as the
+   author of the commits with the date
+   when the commit was placed
+2. On the bottom left we see that a
+   better summary of the commit. It
+   contains the change log ( a summary
+   of all the files that changed during
+   the commit) and the files that were
+   changed in the commit
+3. On the bottom right we have a handy
+   shortcut or table of contents that
+   allows us to click and see the
+   sections.
