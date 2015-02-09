@@ -1,0 +1,118 @@
+Alejandro Alvarado
+CS35L
+lab5.txt
+
+1. Downloaded the file using:
+   curl -O <file>
+   Unzipped the file using:
+   tar -xvf <tar file>
+2. To configure the files ran:
+   ./configure CFLAGS="-g"
+3. Ran 'make' to compile, but
+   it did not succeed.
+   There were problems in
+   utimecmp.[hc] .
+4. Dowloaded the patch from
+   the website using:
+   curl -O <file>
+5. Initialized the coreutils
+   directory with git so that
+   I can do version control.
+   Did an initial commit.
+6. Applied the patch using:
+   patch -p1 < <patch file>
+   And committed the change
+7. Ran step 2. once more
+8. Then ran 'make'
+   Everything seemed to go
+   successfully.
+   Committed changes
+9. The reason that this patch
+   was successful was because
+   before the patch, running
+   make showed that there
+   were certain functions
+   that were expected, but
+   were not found. The renaming
+   patch was able to change
+   the names so that during
+   compilation, the functions
+   were able to be found.
+10. Followed the steps that
+    were shown in the webpage
+    $tmp=$(mktemp -d)
+    $...
+    $...
+    $...
+    I was able to recreate the
+    bug, where the oldest file
+    was shown at the top of the
+    list.
+11. The obvious place to start
+    was in the ls.c program
+    itself. Started a gdb session
+    in emacs for the source file
+    using the command:
+    M-x gdb
+    then I used the command:
+    gdb -i=mi ./ls
+12. There was a clue given to us
+    to look into the sort_files()
+    function. So I set a breakpoint
+    with:
+    b sort_files
+13. Realized we needed to run the
+    program with specific options
+    -lt and specific files. So I
+    ran:
+    r -lt /tmp/<oldfile> /tmp/<file> \
+    /tmp/<file2>
+14. Used the step and next commands
+    in gdb. Printed out some values
+    especiallly the files array.
+    Figured out that the value for
+    mtime for the very old file was
+    negative, which is the main
+    culprit in the bug for ls.
+15. Saw where the path the program
+    took when stepping through the
+    code some more was through
+    the compare_mtime. I decided
+    to check the implementation of
+    this compare function.
+16. After looking at the function
+    I saw that it used timespec_cmp
+    function to compare the times, so
+    I decided to look for its
+    implementation.... It was not in
+    the ls.c file, but in another file
+    named timespec.h
+17. There was a big problem with the
+    implementation... Since we found
+    out that mtime for the file was
+    a very big negative number and
+    it was being subtracted by a large
+    positive number, there was overflow
+    which made the final number positive.
+    Hence, that is why the file was
+    being placed at the top of the list.
+    Another problem was that the return
+    type was an int, and that int could
+    not change because other code may
+    rely on the int value.
+18. Patched the code by casting to
+    a larger width type. Only allowed
+    the return of 1, 0, -1 to fix the
+    return issue.
+19. Now trying the problem on the SEAS
+    lab machines. Found a similar problem.
+    The TA explained to us that the
+    problem with seasnet is that
+    it is 64bits, but each person has
+    a home directory placed outside of
+    SEAS that is 32bit. When info is
+    transferred between the the two
+    the higher order bits are cut
+    to make them 32bit. Therefore,
+    the bug comes from the bits
+    being sliced.
