@@ -1,0 +1,47 @@
+Alejandro Alvarado
+CS35L
+log.txt
+
+1. The first thing we had to do
+   was to download OpenSSH
+   1) sudo apt-get update
+   2) sudo apt-get install openssh-server
+   3) sudo apt-get install openssh-client 
+
+2. The first position that I got
+   to try out was the admin 
+   position.
+
+
+3. We tried the following steps:
+   1) ssh-keygen ( to make the pub.
+      		   and priv. RSA keys
+   2) sudo useradd -d /home/<name> -m <name>
+   3) sudo passwd <name> ( created the password
+      	   	  	   partner)
+   4) cd /home/<name>
+   5) Already had the .ssh directory so I didn't
+      create a new one
+   6) sudo chown -R <name> .ssh 
+   7) sudo chmod 700 (allows permisions to client)
+   8) ifconfig (to get my IP addr to give to client)
+  
+   There were some issues that we ran into where the
+   permsissions were set improperly. The TA managed
+   to track these problems. The permissions for
+   the .ssh directory were improperly set. Used
+   chmod to fix problem.
+
+4. Tried the client side steps:
+
+   1) ssh-keygen ( generate new keys)
+   2) ping <ip-address> ( given to me by partner
+      	   		  check for response)
+   3) ssh-copy-id -i is_rsa.pub <name>@<ip-address>
+      a) able to log in with password now
+   4) ssh-add is_rsa.pub
+      a) use this to add our priv. key to ssh agent
+      	 we can passwordless login
+   5) ssh -X <name>@<ip-address>
+   6) Tested the sesssion with Firefox and worked 
+      properly. 

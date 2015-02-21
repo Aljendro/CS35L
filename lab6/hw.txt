@@ -1,0 +1,38 @@
+Alejandro Alvarado
+CS35L
+hw.txt
+
+1. -If the other teams would have
+   been looking at the stream of
+   bytes going between the 
+   the computers they would not
+   be able to see what anything
+   was becauase everything would
+   have been encrypted
+   1) If they had access to the 
+   keystrokes on either computer
+   they would have full access
+   to our passwords because 
+   anything that is typed on 
+   either end is not encrypted
+   2) If we are now booting off
+   the usb and they have physical
+   control of that usb, then the 
+   Cracker could potentially be
+   able to gain access to the 
+   private key, which would allow
+   them to gain access to our
+   information.
+
+2. The gpg --verify command doesn't
+   really verify that someone 
+   personally created the tar file
+   because it can't verify the
+   origin of the tar file. There
+   is no way that you can verify 
+   that a key came from a particular
+   person. The way we combat that
+   problem is to have third-parties
+   that are trusted to verify
+   that a key originated from a 
+   particular person. 
