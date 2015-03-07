@@ -1,0 +1,83 @@
+Alejandro Alvarado
+CS35L
+lab7.txt
+
+1.    The catb.c file was very easy to
+      implement because I had some 
+      experience using the library
+      from lab 5. The TA also gave
+      us some help during the lab
+      section
+2.    The catu.c file was also easy
+      but it required to look at
+      the documentation for a bit
+      to figure out what the call
+      to read and write wanted. 
+      The TA also helped us a bit 
+      with this one. 
+3./4. -To create a file that was
+      5_000_000 bytes or bigger
+      I just ran a while loop in a
+      shell script that would: 
+      echo "HELLO" >> <file>
+
+      - Compared the following:
+      strace ./catu < <file> > <output>
+      time ./catu < <file> > <output>
+      strace ./catb < <file> > <output>
+      time ./catb < <file> > <output>
+      
+      	- Comparing the strace command
+	for catu and catb I found that
+	catb was using A LOT less read
+	and write system calls. catu 
+	was using a system call for 
+	every byte read while catb
+	used about one read for every 
+	65,536 bytes. 
+
+	- Comparing the times between
+	the two commands was predictable
+	because we knew how many calls 
+	each program was using. On 
+	the SeasNet servers I found 
+	catb's time to be: 
+	real   0m0.175s
+	user   0m0.099s
+	sys    0m0.005s
+
+	catu's time to be:
+	real    0m5.789s
+	user	0m0.226s
+	sys	0m5.496s 
+
+      - Compared the following:
+      strace ./catu < <file>
+      time ./catu < <file>
+      strace ./catb < <file>
+      time ./catb < <file>
+      
+	- Comparing the strace command
+	for catu and catb, I found a 
+	different behavior when the 
+	output was to the terminal. 
+	The catu was still the same,
+	it was reading and writing one
+	byte at a time. However, the
+	catb command was now only using
+	write to output one line at
+	a time.  
+
+	- Comparing the times between
+	the two we find: 
+	catb's time to be:
+	real   0m2.230s
+	user   0m0.189s
+	sys    0m1.099s
+   
+	catu's time to be:
+	real   0m5.413s
+	user   0m0.242s
+	sys    0m5.165s
+	
+    
