@@ -1,0 +1,51 @@
+Alejandro Alvarado
+CS35L
+log.txt
+
+1. Used the command to make a very large
+   random file:
+   od -An -f -N 10000000 < /dev/urandom | tr -s ' ' '\n' > tempFile.txt
+
+2. Next I wanted to test the sort command
+   with different amount of threads. Here
+   are the different commands and their
+   outputs:
+
+   time -p sort -g --parallel=1 tempFile.txt > /dev/null
+
+   real 22.41
+   user 22.15
+   sys 0.05
+
+   time -p sort -g --parallel=2 tempFile.txt > /dev/null
+
+   real 11.72
+   user 22.21
+   sys 0.05
+
+   time -p sort -g --parallel=4 tempFile.txt > /dev/null
+
+   real 6.76
+   user 22.51
+   sys 0.08
+
+   time -p sort -g --parallel=8 tempFile.txt > /dev/null
+
+   real 4.48
+   user 23.81
+   sys 0.10
+
+   Just out of curiosity I tried a lot of different amount
+   of threads and got the best result from 48 threads
+
+   real 4.01
+   user 36.87
+   sys 0.27
+
+   However, there was an enormous amount of overhead
+   compared to the other parallel options to sort
+
+   Therefore, the performance of the sort function
+   improved, but as we added more and more threads
+   we started to see some overhead from creating
+   more and more threads
